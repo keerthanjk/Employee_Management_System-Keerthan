@@ -50,7 +50,7 @@ public class TaskController {
     }
 
 //    @GetMapping("/{id}")
-//    public ResponseEntity<TaskDto> getTaskById(@PathVariable Long id) {
+//    public ResponseEntity<TaskDto> getTaskById(@PathVariable ("id") Long id) {
 //        return new ResponseEntity<>(taskService.getTaskById(id), HttpStatus.OK);
 //    }
 
@@ -74,7 +74,7 @@ public class TaskController {
     		description="HTTP Status 200 SUCCESS"
     		)
     @PutMapping("/{id}")
-    public ResponseEntity<TaskDto> updateTask(@PathVariable Long id, @RequestBody @Valid TaskDto taskDto) {
+    public ResponseEntity<TaskDto> updateTask(@PathVariable ("id") Long id, @RequestBody @Valid TaskDto taskDto) {
         return new ResponseEntity<>(taskService.updateTask(id, taskDto), HttpStatus.OK);
     }
 
@@ -86,7 +86,7 @@ public class TaskController {
     		description="HTTP Status 200 SUCCESS"
     		)
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTask(@PathVariable Long id) {
+    public ResponseEntity<String> deleteTask(@PathVariable ("id") Long id) {
         return new ResponseEntity<>(taskService.deleteTask(id), HttpStatus.OK);
     }
 }
