@@ -88,7 +88,7 @@ public class EmployeeController {
     		description="HTTP Status 200 SUCCESS"
     		)
     @PutMapping("/{id}")
-    public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable Long id, @RequestBody @Valid EmployeeDto employeeDto) {
+    public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable ("id") Long id, @RequestBody @Valid EmployeeDto employeeDto) {
         EmployeeDto updatedEmployeeDto = service.updateEmployee(id, employeeDto);
         return updatedEmployeeDto != null ? ResponseEntity.ok(updatedEmployeeDto): ResponseEntity.notFound().build(); 
   	
@@ -102,7 +102,7 @@ public class EmployeeController {
     		description="HTTP Status 200 SUCCESS"
     		)
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
+    public ResponseEntity<String> deleteEmployee(@PathVariable ("id") Long id) {
         String response = service.deleteEmployee(id);
         return ResponseEntity.ok(response);
     }
